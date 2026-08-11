@@ -1,0 +1,163 @@
+{
+  "lesnoy-gorodok": [
+    {
+      "file": "lesnoy-gorodok-01.jpg",
+      "page": 2,
+      "bytes": 138163
+    },
+    {
+      "file": "lesnoy-gorodok-02.jpg",
+      "page": 3,
+      "bytes": 296161
+    },
+    {
+      "file": "lesnoy-gorodok-03.jpg",
+      "page": 9,
+      "bytes": 276407
+    },
+    {
+      "file": "lesnoy-gorodok-04.jpg",
+      "page": 10,
+      "bytes": 315999
+    },
+    {
+      "file": "lesnoy-gorodok-05.jpg",
+      "page": 11,
+      "bytes": 294626
+    },
+    {
+      "file": "lesnoy-gorodok-06.jpg",
+      "page": 12,
+      "bytes": 291731
+    }
+  ],
+  "dolcevita": [
+    {
+      "file": "dolcevita-01.jpg",
+      "page": 14,
+      "bytes": 96996
+    },
+    {
+      "file": "dolcevita-02.jpg",
+      "page": 15,
+      "bytes": 96188
+    },
+    {
+      "file": "dolcevita-03.jpg",
+      "page": 17,
+      "bytes": 223780
+    },
+    {
+      "file": "dolcevita-04.jpg",
+      "page": 18,
+      "bytes": 276984
+    },
+    {
+      "file": "dolcevita-05.jpg",
+      "page": 19,
+      "bytes": 211238
+    },
+    {
+      "file": "dolcevita-06.jpg",
+      "page": 20,
+      "bytes": 84486
+    }
+  ],
+  "novopalchino": [
+    {
+      "file": "novopalchino-01.jpg",
+      "page": 24,
+      "bytes": 120821
+    },
+    {
+      "file": "novopalchino-02.jpg",
+      "page": 25,
+      "bytes": 113088
+    },
+    {
+      "file": "novopalchino-03.jpg",
+      "page": 27,
+      "bytes": 196564
+    },
+    {
+      "file": "novopalchino-04.jpg",
+      "page": 29,
+      "bytes": 159603
+    },
+    {
+      "file": "novopalchino-05.jpg",
+      "page": 31,
+      "bytes": 153538
+    },
+    {
+      "file": "novopalchino-06.jpg",
+      "page": 33,
+      "bytes": 157649
+    }
+  ],
+  "govorovo": [
+    {
+      "file": "govorovo-01.jpg",
+      "page": 28,
+      "bytes": 191582
+    },
+    {
+      "file": "govorovo-02.jpg",
+      "page": 29,
+      "bytes": 216354
+    },
+    {
+      "file": "govorovo-03.jpg",
+      "page": 30,
+      "bytes": 229690
+    },
+    {
+      "file": "govorovo-04.jpg",
+      "page": 35,
+      "bytes": 146602
+    },
+    {
+      "file": "govorovo-05.jpg",
+      "page": 36,
+      "bytes": 124513
+    },
+    {
+      "file": "govorovo-06.jpg",
+      "page": 37,
+      "bytes": 134421
+    }
+  ],
+  "pudyshi": [
+    {
+      "file": "pudyshi-01.jpg",
+      "page": 5,
+      "bytes": 183903
+    },
+    {
+      "file": "pudyshi-02.jpg",
+      "page": 23,
+      "bytes": 215186
+    },
+    {
+      "file": "pudyshi-03.jpg",
+      "page": 24,
+      "bytes": 217421
+    },
+    {
+      "file": "pudyshi-04.jpg",
+      "page": 25,
+      "bytes": 145555
+    },
+    {
+      "file": "pudyshi-05.jpg",
+      "page": 26,
+      "bytes": 143519
+    },
+    {
+      "file": "pudyshi-06.jpg",
+      "page": 28,
+      "bytes": 139036
+    }
+  ],
+  "bor": []
+}
