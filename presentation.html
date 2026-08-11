@@ -338,56 +338,74 @@
       line-height: 1.45;
     }
 
-    /* Project slides: contained shot + copy (not full-bleed) */
+    /* Project slides: volumetric frame + copy (not full-bleed) */
     .slide.is-project {
       background:
-        radial-gradient(120% 80% at 12% 18%, rgba(198, 219, 122, 0.06), transparent 42%),
-        radial-gradient(90% 70% at 88% 78%, rgba(26, 38, 32, 0.9), transparent 50%),
-        var(--bg);
+        radial-gradient(110% 70% at 18% 22%, rgba(198, 219, 122, 0.07), transparent 45%),
+        radial-gradient(80% 60% at 92% 82%, rgba(26, 38, 32, 0.95), transparent 55%),
+        linear-gradient(165deg, #0e1612 0%, var(--bg) 48%, #090d0b 100%);
       align-content: center;
     }
     .project {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
-      gap: clamp(1.1rem, 3vw, 2.4rem);
-      width: min(100% - 2 * var(--pad), 1040px);
+      grid-template-columns: minmax(0, 1.55fr) minmax(0, 0.85fr);
+      gap: clamp(1.25rem, 3.2vw, 2.6rem);
+      width: min(100% - 2 * var(--pad), 1100px);
       margin: 0 auto;
-      padding: calc(var(--nav-h) + 0.85rem) 0 clamp(5rem, 11vh, 6.5rem);
+      padding: calc(var(--nav-h) + 0.7rem) 0 clamp(4.5rem, 10vh, 6rem);
       align-items: center;
       position: relative;
       z-index: 1;
     }
     .project.is-flip {
-      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.55fr);
     }
     .project.is-flip .project-shot { order: 2; }
     .project.is-flip .project-copy { order: 1; }
     .project-shot {
       margin: 0;
-      background: #070b09;
-      outline: 1px solid rgba(231, 238, 232, 0.14);
-      max-height: min(52vh, 420px);
+      background: #050807;
+      outline: 1px solid rgba(231, 238, 232, 0.16);
+      max-height: min(62vh, 540px);
       width: 100%;
       aspect-ratio: 16 / 10;
       overflow: hidden;
       position: relative;
+      box-shadow:
+        0 18px 48px rgba(0, 0, 0, 0.45),
+        0 4px 14px rgba(0, 0, 0, 0.28);
+    }
+    .project-shot::before {
+      content: "";
+      position: absolute;
+      inset: auto -6% -10% 8%;
+      height: 42%;
+      background: radial-gradient(60% 80% at 40% 0%, rgba(198, 219, 122, 0.12), transparent 70%);
+      filter: blur(18px);
+      z-index: 0;
+      pointer-events: none;
     }
     .project-shot::after {
       content: "";
       position: absolute;
       inset: 0;
       pointer-events: none;
-      box-shadow: inset 0 0 0 1px rgba(198, 219, 122, 0.08);
+      z-index: 2;
+      box-shadow:
+        inset 0 0 0 1px rgba(198, 219, 122, 0.1),
+        inset 0 40px 60px rgba(0, 0, 0, 0.12);
     }
     .project-shot img {
+      position: relative;
+      z-index: 1;
       width: 100%;
       height: 100%;
       object-fit: contain;
       object-position: center;
-      background: #070b09;
-      transform: scale(1.02);
-      opacity: 0.92;
-      transition: transform 0.9s var(--ease), opacity 0.7s var(--ease);
+      background: #050807;
+      transform: scale(1.035);
+      opacity: 0.9;
+      transition: transform 0.95s var(--ease), opacity 0.7s var(--ease);
     }
     .project-shot--photo img {
       object-fit: cover;
@@ -398,7 +416,7 @@
     }
     .project-copy {
       min-width: 0;
-      padding-block: 0.25rem;
+      padding-block: 0.35rem;
     }
     .project-copy::before {
       content: "";
@@ -409,13 +427,13 @@
       margin-bottom: 0.85rem;
     }
     .project-copy h2 {
-      font-size: clamp(1.35rem, 2.8vw, 2.05rem);
+      font-size: clamp(1.4rem, 2.9vw, 2.15rem);
       max-width: 12ch;
       margin-bottom: 0.7rem;
     }
     .project-copy .lede {
-      margin-bottom: 1.15rem;
-      max-width: 32ch;
+      margin-bottom: 1.2rem;
+      max-width: 30ch;
       font-size: clamp(0.88rem, 1.2vw, 0.98rem);
     }
     .project-copy .btn {
@@ -436,71 +454,136 @@
       background: rgba(198, 219, 122, 0.06);
     }
 
-    /* New projects with contained preview */
-    .slide.is-archive {
-      background: var(--bg);
+    /* Slide 11: fresh work — hero render + laconic links */
+    .slide.is-fresh {
+      background:
+        radial-gradient(90% 70% at 70% 30%, rgba(198, 219, 122, 0.08), transparent 50%),
+        linear-gradient(155deg, #101814 0%, var(--bg) 55%, #080c0a 100%);
       align-content: center;
     }
-    .archive {
+    .fresh {
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
-      gap: clamp(1.1rem, 3vw, 2.4rem);
-      width: min(100% - 2 * var(--pad), 1040px);
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+      gap: clamp(1.2rem, 3vw, 2.5rem);
+      width: min(100% - 2 * var(--pad), 1100px);
       margin: 0 auto;
-      padding: calc(var(--nav-h) + 0.85rem) 0 clamp(5rem, 11vh, 6.5rem);
+      padding: calc(var(--nav-h) + 0.7rem) 0 clamp(4.5rem, 10vh, 6rem);
       align-items: center;
       position: relative;
       z-index: 1;
     }
-    .archive-shot {
+    .fresh-shot {
       margin: 0;
-      background: #070b09;
-      outline: 1px solid rgba(231, 238, 232, 0.14);
-      max-height: min(48vh, 380px);
-      aspect-ratio: 4 / 5;
+      position: relative;
+      background: #050807;
+      outline: 1px solid rgba(231, 238, 232, 0.16);
+      aspect-ratio: 16 / 10;
+      max-height: min(64vh, 560px);
       overflow: hidden;
+      box-shadow:
+        0 22px 56px rgba(0, 0, 0, 0.5),
+        0 6px 18px rgba(0, 0, 0, 0.3);
     }
-    .archive-shot img {
+    .fresh-shot img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      object-position: center;
+      transform: scale(1.04);
+      opacity: 0.88;
+      transition: transform 1s var(--ease), opacity 0.75s var(--ease);
     }
-    .archive h2 {
-      font-size: clamp(1.35rem, 2.8vw, 2.05rem);
-      margin-bottom: 0.85rem;
+    .slide.is-active .fresh-shot img {
+      transform: scale(1);
+      opacity: 1;
     }
-    .plist {
+    .fresh-shot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(90deg, transparent 55%, rgba(11, 16, 14, 0.35));
+      box-shadow: inset 0 0 0 1px rgba(198, 219, 122, 0.1);
+    }
+    .fresh-caption {
+      position: absolute;
+      left: 0.9rem;
+      bottom: 0.75rem;
+      z-index: 2;
+      font-family: "Syne", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(231, 238, 232, 0.82);
+      background: rgba(11, 16, 14, 0.55);
+      padding: 0.28rem 0.55rem;
+      backdrop-filter: blur(6px);
+    }
+    .fresh-copy {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.1rem;
+    }
+    .fresh-copy h2 {
+      font-size: clamp(1.45rem, 3vw, 2.2rem);
+      margin: 0;
+      max-width: 10ch;
+    }
+    .fresh-copy .lede {
+      margin: 0;
+      max-width: 28ch;
+      font-size: 0.92rem;
+    }
+    .flink {
       display: grid;
       gap: 0;
-      margin-top: 0;
       border-top: 1px solid var(--line);
-      max-width: none;
     }
-    .plist a {
+    .flink a {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-      align-items: center;
-      padding: 0.68rem 0;
+      grid-template-columns: auto 1fr auto;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.72rem 0;
       border-bottom: 1px solid var(--line);
-      transition: color 0.25s var(--ease), transform 0.25s var(--ease);
+      color: var(--text);
+      transition: color 0.25s var(--ease), transform 0.3s var(--ease);
     }
-    .plist a:hover {
+    .flink a:hover,
+    .flink a:focus-visible {
       color: var(--accent);
-      transform: translateX(0.35rem);
+      transform: translateX(0.28rem);
+      outline: none;
     }
-    .plist strong {
+    .flink .n {
       font-family: "Syne", sans-serif;
-      font-size: 0.98rem;
-      letter-spacing: -0.02em;
+      font-size: 0.72rem;
       font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      min-width: 1.4rem;
     }
-    .plist .open {
-      font-size: 0.8rem;
-      font-weight: 600;
+    .flink a:hover .n,
+    .flink a:focus-visible .n { color: var(--accent-deep); }
+    .flink strong {
+      font-family: "Syne", sans-serif;
+      font-size: clamp(0.95rem, 1.4vw, 1.08rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .flink .go {
+      font-size: 1rem;
+      line-height: 1;
       color: var(--accent);
-      white-space: nowrap;
+      opacity: 0.55;
+      transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
+    }
+    .flink a:hover .go,
+    .flink a:focus-visible .go {
+      opacity: 1;
+      transform: translateX(3px);
     }
 
     /* Chrome */
@@ -736,21 +819,24 @@
       }
       .project,
       .project.is-flip,
-      .archive {
+      .fresh {
         grid-template-columns: 1fr;
         gap: 1.1rem;
       }
       .project.is-flip .project-shot,
       .project.is-flip .project-copy { order: initial; }
       .project-shot {
-        max-height: min(38vh, 280px);
+        max-height: min(42vh, 320px);
         aspect-ratio: 16 / 10;
       }
-      .archive-shot {
-        max-height: min(34vh, 240px);
-        aspect-ratio: 16 / 10;
+      .fresh-shot {
+        max-height: min(40vh, 300px);
         max-width: 100%;
       }
+      .fresh-shot::after {
+        background: linear-gradient(180deg, transparent 60%, rgba(11, 16, 14, 0.4));
+      }
+      .flink a { padding: 0.62rem 0; }
       .split { grid-template-columns: 1fr; }
       .gallery {
         min-height: 28vh;
@@ -934,31 +1020,35 @@
       </div>
     </section>
 
-    <!-- 11. New projects -->
-    <section class="slide is-archive" data-label="Новые проекты">
-      <div class="archive">
-        <figure class="archive-shot">
-          <img src="public/projects/about/variants.jpg" alt="Варианты проектов" />
+    <!-- 11. New projects: Bayside render + laconic index -->
+    <section class="slide is-fresh" data-label="Новые проекты">
+      <div class="fresh">
+        <figure class="fresh-shot">
+          <img src="public/projects/about/fresh-hero.jpg" alt="Bayside — 3D-визуализация" />
+          <figcaption class="fresh-caption">Bayside · 3D</figcaption>
         </figure>
-        <div>
-          <h2>Новые проекты</h2>
-          <div class="plist">
+        <div class="fresh-copy">
+          <div>
+            <h2>Новые проекты</h2>
+            <p class="lede">Свежие PDF с Диска — открываются по имени.</p>
+          </div>
+          <nav class="flink" aria-label="Новые проекты">
             <a href="https://disk.yandex.ru/d/gJpPrQbL8JvvgQ/11.08/%D0%9B%D0%B0%D0%BD%D0%B4%D1%88%D0%B0%D1%84%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82_Bayside.pdf" target="_blank" rel="noopener noreferrer">
-              <strong>Bayside</strong><span class="open">Открыть проект</span>
+              <span class="n">01</span><strong>Bayside</strong><span class="go" aria-hidden="true">→</span>
             </a>
             <a href="https://disk.yandex.ru/d/gJpPrQbL8JvvgQ/11.08/%D0%9B%D0%B0%D0%BD%D0%B4%D1%88%D0%B0%D1%84%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82_%D0%9D%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%92%D0%B5%D1%88%D0%BA%D0%B8.pdf" target="_blank" rel="noopener noreferrer">
-              <strong>Новые Вешки</strong><span class="open">Открыть проект</span>
+              <span class="n">02</span><strong>Новые Вешки</strong><span class="go" aria-hidden="true">→</span>
             </a>
             <a href="https://disk.yandex.ru/d/gJpPrQbL8JvvgQ/11.08/%D0%9B%D0%B0%D0%BD%D0%B4%D1%88%D0%B0%D1%84%D1%82%D0%BD%D1%8B%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82_%D0%A1%D0%BE%D1%84%D1%80%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B5%20%D0%BF%D1%80%D1%83%D0%B4%D1%8B.pdf" target="_blank" rel="noopener noreferrer">
-              <strong>Софринские пруды</strong><span class="open">Открыть проект</span>
+              <span class="n">03</span><strong>Софринские пруды</strong><span class="go" aria-hidden="true">→</span>
             </a>
             <a href="https://disk.yandex.ru/d/gJpPrQbL8JvvgQ/11.08/%D0%9A%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B7%D0%B5%D0%BB%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F_%D1%8F%D0%BF%D0%BE%D0%BD%D1%81%D0%BA%D0%B8%D0%B9%20%D1%81%D0%B0%D0%B4%2010.10.25.pdf" target="_blank" rel="noopener noreferrer">
-              <strong>Японский сад</strong><span class="open">Открыть проект</span>
+              <span class="n">04</span><strong>Японский сад</strong><span class="go" aria-hidden="true">→</span>
             </a>
             <a href="https://disk.yandex.ru/d/gJpPrQbL8JvvgQ/11.08/%D0%AD%D1%81%D0%BA%D0%B8%D0%B7%D0%BD%D0%BE%D0%B5%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5.pdf" target="_blank" rel="noopener noreferrer">
-              <strong>Эскизное предложение</strong><span class="open">Открыть проект</span>
+              <span class="n">05</span><strong>Эскизное предложение</strong><span class="go" aria-hidden="true">→</span>
             </a>
-          </div>
+          </nav>
         </div>
       </div>
     </section>
