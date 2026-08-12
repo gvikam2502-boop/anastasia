@@ -418,17 +418,15 @@
       object-position: center;
       transform: scale(1.06);
     }
-    /* Drawing sheets: soft paper plate, crop page chrome */
+    /* Drawing sheets: fill dark frame, crop page chrome hard */
     .project-shot--sheet {
-      background:
-        linear-gradient(160deg, #ece8e0 0%, #d8d2c6 100%);
-      outline-color: rgba(231, 238, 232, 0.22);
+      background: #0c1210;
     }
     .project-shot--sheet img {
       object-fit: cover;
-      object-position: center 42%;
-      transform: scale(1.18);
-      filter: contrast(1.03) saturate(1.04);
+      object-position: center 45%;
+      transform: scale(1.28);
+      filter: contrast(1.04) saturate(1.05);
     }
     .slide.is-active .project-shot img {
       transform: scale(1.08);
@@ -438,7 +436,7 @@
       transform: scale(1);
     }
     .slide.is-active .project-shot--sheet img {
-      transform: scale(1.1);
+      transform: scale(1.18);
     }
     .project-copy {
       min-width: 0;
