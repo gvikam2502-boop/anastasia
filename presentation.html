@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Анастасия Шагидулина · Презентация</title>
-  <meta name="description" content="Презентация ландшафтного дизайнера Анастасии Шагидулиной: от концепции до рабочего проекта." />
+  <title>Анастасия — ландшафт</title>
+  <meta name="description" content="Презентация: ландшафтный дизайн от концепции до рабочего проекта." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -193,39 +193,6 @@
     .soc svg.is-fill {
       fill: currentColor;
       stroke: none;
-    }
-    .soc-max {
-      width: auto;
-      min-width: 40px;
-      padding: 0 0.7rem;
-      grid-auto-flow: column;
-      gap: 0.4rem;
-      font-family: "Syne", sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 5.5rem;
-      transform: translateX(-50%) translateY(0.6rem);
-      z-index: 60;
-      padding: 0.65rem 0.95rem;
-      background: rgba(18, 26, 22, 0.96);
-      border: 1px solid rgba(198, 219, 122, 0.35);
-      color: var(--text);
-      font-size: 0.88rem;
-      line-height: 1.35;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s var(--ease), transform 0.25s var(--ease);
-      max-width: min(92vw, 28rem);
-      text-align: center;
-    }
-    .toast.is-on {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
     }
 
     .actions {
@@ -875,13 +842,51 @@
     .toc-close:hover { border-color: rgba(231,238,232,0.35); }
 
     @media (max-width: 860px) {
+      :root {
+        --nav-h: 52px;
+        --pad: clamp(1rem, 4.2vw, 1.6rem);
+      }
+      .nav-brand { font-size: 0.88rem; }
+      .icon-btn {
+        width: 34px;
+        height: 34px;
+      }
+      .icon-btn svg { width: 15px; height: 15px; }
+      .arrows {
+        right: 0.55rem;
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+      .arrow {
+        width: 34px;
+        height: 34px;
+      }
+      .arrow svg { width: 15px; height: 15px; }
+      .pager {
+        bottom: max(0.55rem, env(safe-area-inset-bottom, 0px));
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        max-width: calc(100% - 5.5rem);
+      }
+      .dots { gap: 0.28rem; }
+      .dot { width: 14px; height: 2px; }
+      .count { font-size: 0.72rem; }
+      .hint { display: none !important; }
+      .body {
+        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
+      }
       .about-layout {
         grid-template-columns: 1fr;
-        gap: 1.35rem;
+        gap: 1.1rem;
+        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
       }
       .about-photo {
-        max-height: 40vh;
-        width: min(100%, 280px);
+        max-height: 34vh;
+        width: min(100%, 220px);
         justify-self: start;
       }
       .frames {
@@ -900,48 +905,54 @@
       .title-bar {
         flex-direction: column;
         align-items: flex-start;
-        padding-bottom: clamp(4rem, 12vh, 5.5rem);
+        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
       }
       .project,
       .project.is-flip,
       .fresh {
         grid-template-columns: 1fr;
-        gap: 1.1rem;
+        gap: 0.9rem;
+        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
       }
       .project.is-flip .project-shot,
       .project.is-flip .project-copy { order: initial; }
       .project-shot {
-        max-height: min(46vh, 360px);
+        max-height: min(38vh, 280px);
         aspect-ratio: 16 / 10;
       }
       .project-shot img,
       .project-shot--sheet img {
-        transform: scale(1.12);
+        transform: scale(1.1);
       }
       .slide.is-active .project-shot img,
       .slide.is-active .project-shot--sheet img {
-        transform: scale(1.06);
+        transform: scale(1.05);
       }
       .slide.is-active .project-shot--photo img {
-        transform: scale(1);
+        transform: scale(1.02);
       }
       .fresh-shot {
-        max-height: min(40vh, 300px);
+        max-height: min(34vh, 250px);
         max-width: 100%;
       }
       .fresh-shot::after {
         background: linear-gradient(180deg, transparent 60%, rgba(11, 16, 14, 0.4));
       }
-      .flink a { padding: 0.62rem 0; }
+      .flink a { padding: 0.55rem 0; }
+      .flink strong { font-size: 0.92rem; }
       .split { grid-template-columns: 1fr; }
       .gallery {
-        min-height: 28vh;
+        min-height: 24vh;
         order: -1;
       }
-      .process { grid-template-columns: 1fr 1fr; }
-      .arrows { bottom: 3.4rem; }
-      .pager { bottom: 0.85rem; }
-      h1 { max-width: 11ch; }
+      .process { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+      h1 { max-width: 11ch; font-size: clamp(1.65rem, 7.5vw, 2.35rem); }
+      h2 { font-size: clamp(1.2rem, 5.5vw, 1.7rem); }
+      .project-copy h2 { font-size: clamp(1.2rem, 5.2vw, 1.65rem); }
+      .lede { font-size: 0.9rem; }
+      .soc { width: 36px; height: 36px; }
+      .soc svg { width: 16px; height: 16px; }
+      .phone { font-size: 0.95rem; }
     }
     @media (max-width: 560px) {
       .process { grid-template-columns: 1fr; }
@@ -1154,7 +1165,7 @@
       <div class="veil"></div>
       <div class="body">
         <h2>Обсудим ваш участок</h2>
-        <p class="lede">Коротко разберём задачу — звонок, Telegram или Max.</p>
+        <p class="lede">Коротко по телефону, в Telegram или в Max по этому же номеру.</p>
         <div class="contact-line">
           <a class="phone" href="tel:+79150901245">+7 915 090-12-45</a>
           <a class="soc" href="tel:+79150901245" aria-label="Позвонить" title="Позвонить">
@@ -1163,10 +1174,6 @@
           <a class="soc" href="https://t.me/n_stysh" target="_blank" rel="noopener noreferrer" aria-label="Telegram" title="Telegram">
             <svg class="is-fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 4.3 3.7 11.2c-1.2.5-1.2 1.2-.2 1.5l4.5 1.4 1.7 5.3c.2.7.1.9.8.9.5 0 .7-.2 1-.5l2.5-2.4 5.2 3.8c1 .5 1.6.2 1.9-0.9L22.9 5.6c.3-1.2-.4-1.8-1.4-1.3Zm-3 3.1-8.4 7.6-.4 3.3-1.6-4.7 10.4-6.2Z"/></svg>
           </a>
-          <button class="soc soc-max" type="button" data-max-phone="+79150901245" aria-label="Max: скопировать номер +7 915 090-12-45" title="Max · скопировать номер">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-8.5 8.5H7l-3.5 2.2V15A8.5 8.5 0 1 1 21 12Z"/><path d="M8.5 11.2h7M8.5 14h4.5"/></svg>
-            <span>Max</span>
-          </button>
         </div>
       </div>
     </section>
@@ -1176,7 +1183,7 @@
     <div class="progress" id="progress"></div>
     <header class="nav">
       <div class="nav-inner">
-        <div class="nav-brand">Анастасия Шагидулина</div>
+        <div class="nav-brand">Анастасия — ландшафт</div>
         <div class="nav-tools">
           <button class="icon-btn" type="button" id="tocBtn" aria-label="Содержание" title="Содержание">
             <svg viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h10"/></svg>
@@ -1249,7 +1256,7 @@
       count.textContent = String(i + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
       prevBtn.disabled = i === 0;
       nextBtn.disabled = i === slides.length - 1;
-      document.title = slides[i].dataset.label + " · Анастасия Шагидулина";
+      document.title = slides[i].dataset.label + " · Анастасия — ландшафт";
     }
 
     function go(n) {
@@ -1301,30 +1308,6 @@
       else document.exitFullscreen?.();
     }
     document.getElementById("fsBtn").addEventListener("click", toggleFs);
-
-    const toast = document.createElement("div");
-    toast.className = "toast";
-    toast.setAttribute("role", "status");
-    toast.setAttribute("aria-live", "polite");
-    document.body.appendChild(toast);
-    let toastTimer = 0;
-    function showToast(msg) {
-      toast.textContent = msg;
-      toast.classList.add("is-on");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => toast.classList.remove("is-on"), 2800);
-    }
-    async function copyMaxPhone(phone) {
-      try {
-        await navigator.clipboard.writeText(phone);
-        showToast("Номер скопирован — в Max найдите по +7 915 090-12-45");
-      } catch {
-        showToast("Номер для Max: +7 915 090-12-45");
-      }
-    }
-    document.querySelectorAll("[data-max-phone]").forEach((btn) => {
-      btn.addEventListener("click", () => copyMaxPhone(btn.dataset.maxPhone || "+79150901245"));
-    });
 
     render();
   </script>
