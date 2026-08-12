@@ -2,7 +2,9 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b100e" />
+  <meta http-equiv="Cache-Control" content="no-cache" />
   <title>Анастасия — ландшафт</title>
   <meta name="description" content="Презентация: ландшафтный дизайн от концепции до рабочего проекта." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -841,58 +843,64 @@
     }
     .toc-close:hover { border-color: rgba(231,238,232,0.35); }
 
-    @media (max-width: 860px) {
+    @media (max-width: 1024px), (hover: none) and (pointer: coarse) {
       :root {
-        --nav-h: 52px;
-        --pad: clamp(1rem, 4.2vw, 1.6rem);
+        --nav-h: 48px;
+        --pad: clamp(0.85rem, 3.8vw, 1.35rem);
       }
-      .nav-brand { font-size: 0.88rem; }
+      .nav-brand { font-size: 0.82rem; max-width: 58vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .icon-btn {
-        width: 34px;
-        height: 34px;
+        width: 32px;
+        height: 32px;
       }
-      .icon-btn svg { width: 15px; height: 15px; }
+      .icon-btn svg { width: 14px; height: 14px; }
       .arrows {
-        right: 0.55rem;
+        right: 0.4rem;
         top: 50%;
-        bottom: auto;
+        bottom: auto !important;
+        left: auto;
         transform: translateY(-50%);
         flex-direction: column;
-        gap: 0.35rem;
+        gap: 0.3rem;
+        z-index: 25;
       }
       .arrow {
-        width: 34px;
-        height: 34px;
+        width: 30px;
+        height: 30px;
+        background: rgba(11,16,14,0.72);
       }
-      .arrow svg { width: 15px; height: 15px; }
+      .arrow svg { width: 13px; height: 13px; }
       .pager {
-        bottom: max(0.55rem, env(safe-area-inset-bottom, 0px));
+        bottom: max(0.45rem, env(safe-area-inset-bottom, 0px));
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        max-width: calc(100% - 5.5rem);
+        max-width: calc(100% - 4.5rem);
+        z-index: 24;
       }
-      .dots { gap: 0.28rem; }
-      .dot { width: 14px; height: 2px; }
-      .count { font-size: 0.72rem; }
+      .dots { gap: 0.22rem; }
+      .dot { width: 12px; height: 2px; }
+      .count { font-size: 0.68rem; opacity: 0.85; }
       .hint { display: none !important; }
       .body {
-        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
+        padding-bottom: clamp(3rem, 8vh, 4rem);
+        width: min(100% - 2 * var(--pad), 1120px);
       }
       .about-layout {
         grid-template-columns: 1fr;
-        gap: 1.1rem;
-        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
+        gap: 1rem;
+        padding-bottom: clamp(3rem, 8vh, 4rem);
       }
       .about-photo {
-        max-height: 34vh;
-        width: min(100%, 220px);
+        max-height: 32vh;
+        width: min(100%, 200px);
         justify-self: start;
       }
       .frames {
         grid-template-columns: 1fr 1fr;
         max-height: none;
         flex: 0 1 auto;
+        gap: 0.35rem;
       }
       .frames figure:first-child {
         grid-column: span 2;
@@ -905,54 +913,61 @@
       .title-bar {
         flex-direction: column;
         align-items: flex-start;
-        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
+        padding-bottom: clamp(3rem, 8vh, 4rem);
       }
       .project,
       .project.is-flip,
       .fresh {
         grid-template-columns: 1fr;
-        gap: 0.9rem;
-        padding-bottom: clamp(3.2rem, 9vh, 4.5rem);
+        gap: 0.75rem;
+        width: min(100% - 2 * var(--pad), 1140px);
+        padding-bottom: clamp(3rem, 8vh, 4rem);
       }
       .project.is-flip .project-shot,
       .project.is-flip .project-copy { order: initial; }
       .project-shot {
-        max-height: min(38vh, 280px);
+        max-height: min(34vh, 250px);
         aspect-ratio: 16 / 10;
+        box-shadow: 0 10px 28px rgba(0,0,0,0.4);
       }
       .project-shot img,
       .project-shot--sheet img {
-        transform: scale(1.1);
+        transform: scale(1.12);
       }
       .slide.is-active .project-shot img,
       .slide.is-active .project-shot--sheet img {
-        transform: scale(1.05);
+        transform: scale(1.06);
       }
       .slide.is-active .project-shot--photo img {
-        transform: scale(1.02);
+        transform: scale(1.03);
       }
       .fresh-shot {
-        max-height: min(34vh, 250px);
+        max-height: min(30vh, 220px);
         max-width: 100%;
       }
       .fresh-shot::after {
         background: linear-gradient(180deg, transparent 60%, rgba(11, 16, 14, 0.4));
       }
-      .flink a { padding: 0.55rem 0; }
-      .flink strong { font-size: 0.92rem; }
+      .flink a { padding: 0.5rem 0; }
+      .flink strong { font-size: 0.9rem; }
       .split { grid-template-columns: 1fr; }
       .gallery {
-        min-height: 24vh;
+        min-height: 22vh;
         order: -1;
       }
-      .process { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-      h1 { max-width: 11ch; font-size: clamp(1.65rem, 7.5vw, 2.35rem); }
-      h2 { font-size: clamp(1.2rem, 5.5vw, 1.7rem); }
-      .project-copy h2 { font-size: clamp(1.2rem, 5.2vw, 1.65rem); }
-      .lede { font-size: 0.9rem; }
-      .soc { width: 36px; height: 36px; }
-      .soc svg { width: 16px; height: 16px; }
-      .phone { font-size: 0.95rem; }
+      .process { grid-template-columns: 1fr 1fr; gap: 0.55rem; }
+      .process h3 { font-size: 0.92rem; }
+      .process p { font-size: 0.8rem; }
+      h1 { max-width: 11ch; font-size: clamp(1.45rem, 7vw, 2.1rem); margin-bottom: 0.55rem; }
+      h2 { font-size: clamp(1.1rem, 5vw, 1.55rem); }
+      .project-copy h2 { font-size: clamp(1.1rem, 4.8vw, 1.5rem); margin-bottom: 0.45rem; }
+      .project-copy .lede { margin-bottom: 0.85rem; font-size: 0.86rem; }
+      .lede { font-size: 0.86rem; }
+      .soc { width: 34px; height: 34px; }
+      .soc svg { width: 15px; height: 15px; }
+      .phone { font-size: 0.9rem; }
+      .btn { min-height: 36px; padding: 0.4rem 0.75rem; font-size: 0.84rem; }
+      .toc-panel { width: min(100% - 1.2rem, 360px); padding: 1rem; }
     }
     @media (max-width: 560px) {
       .process { grid-template-columns: 1fr; }
@@ -1102,8 +1117,8 @@
     <!-- 9. Pudyshi -->
     <section class="slide is-project" data-label="Пудыши">
       <div class="project is-flip">
-        <figure class="project-shot project-shot--sheet">
-          <img src="public/projects/pdf-pages/pudyshi/pudyshi-07.jpg" alt="Пудыши" />
+        <figure class="project-shot project-shot--photo">
+          <img src="public/projects/heroes/pudyshi-hero.jpg?v=0812b" alt="Пудыши — визуализация" />
         </figure>
         <div class="project-copy">
           <h2>Пудыши</h2>
