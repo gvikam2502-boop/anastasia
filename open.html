@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Открываем файл…</title>
+  <style>
+    :root { color-scheme: dark; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+      font: 500 1rem/1.45 Manrope, system-ui, sans-serif;
+      background: #0b100e;
+      color: #e7eee8;
+      text-align: center;
+    }
+    a { color: #c6db7a; }
+    .sub { opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+  <div>
+    <p id="msg">Открываем файл с Яндекс Диска…</p>
+    <p class="sub" id="sub"></p>
+  </div>
+  <script>
+    (async () => {
+      const PUBLIC = "https://disk.yandex.ru/d/gJpPrQbL8JvvgQ";
+      const params = new URLSearchParams(location.search);
+      const path = params.get("path");
+      const msg = document.getElementById("msg");
+      const sub = document.getElementById("sub");
+
+      if (!path || !path.startsWith("/")) {
+        msg.textContent = "Не указан путь к файлу.";
+        return;
+      }
+
+      const folderUrl = () => {
+        const parts = path.split("/").filter(Boolean).map(encodeURIComponent);
+        return parts.length ? PUBLIC + "/" + parts.join("/") : PUBLIC;
+      };
+
+      try {
+        const metaRes = await fetch(
+          "https://cloud-api.yandex.net/v1/disk/public/resources?" +
+            new URLSearchParams({ public_key: PUBLIC, path })
+        );
+        if (!metaRes.ok) throw new Error("meta " + metaRes.status);
+        const meta = await metaRes.json();
+
+        if (meta.type === "dir") {
+          location.replace(folderUrl());
+          return;
+        }
+
+        sub.textContent = meta.name || path;
+        const dlRes = await fetch(
+          "https://cloud-api.yandex.net/v1/disk/public/resources/download?" +
+            new URLSearchParams({ public_key: PUBLIC, path })
+        );
+        if (!dlRes.ok) throw new Error("download " + dlRes.status);
+        const dl = await dlRes.json();
+        if (!dl.href) throw new Error("empty href");
+        location.replace(dl.href);
+      } catch (err) {
+        msg.innerHTML =
+          "Не удалось открыть файл автоматически.<br /><a href=\"" +
+          folderUrl() +
+          "\">Открыть на Яндекс Диске</a>";
+        sub.textContent = String(err && err.message ? err.message : err);
+      }
+    })();
+  </script>
+</body>
+</html>
